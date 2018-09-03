@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+import os
+import sys
+from dm_mock import DmServer
+sys.path.insert(0,
+                os.path.join(
+                    os.path.dirname(__file__),
+                    "py-socket-server"))
+from socket_server import ServerApp
+
+
+if __name__ == "__main__":
+    app = ServerApp(DmServer, socket_file=DmServer.get_socket_file())
+    app.main()
